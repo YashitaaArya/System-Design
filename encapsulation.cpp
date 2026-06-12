@@ -1,16 +1,19 @@
 #include<iostream>
 using namespace std;
 
-class SportsCar{
-    private: 
+class Car{
+    protected: 
         // characteristics
         string brand, model;
         bool isEngineOn;
-        int currSpeed, currGear;
+        int currSpeed;
+
+    private:
+        int currGear;
         string tyre;
         
     public:
-        SportsCar(string b, string m){
+        Car(string b, string m){
             this->brand = b;
             this->model=m;
             isEngineOn=false;
@@ -63,16 +66,16 @@ class SportsCar{
         }
 
 };
-int main(){
-    SportsCar* myCar = new SportsCar("Mercedes", "Benz");
-    myCar->startEngine();
-    myCar->shiftGear(1);
-    myCar->accelerate();
-    myCar->shiftGear(2);
-    myCar->accelerate();
-    myCar->brake();
-    myCar->stopEngine();
+// int main(){
+//     Car* myCar = new Car("Mercedes", "Benz");
+//     myCar->startEngine();
+//     myCar->shiftGear(1);
+//     myCar->accelerate();
+//     myCar->shiftGear(2);
+//     myCar->accelerate();
+//     myCar->brake();
+//     myCar->stopEngine();
 
-    delete(myCar);
-    return 0;
-}
+//     delete(myCar);
+//     return 0;
+// }
