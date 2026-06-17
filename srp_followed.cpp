@@ -32,29 +32,48 @@ class ShoppingCart{
             }
             return total;
         }
+};
 
-        // 2. Violating SRP - Prints invoice (which should be in a separate class)
+class ShoppingCartPrinter{
+    private:
+        ShoppingCart* cart;
+    public:
+        ShoppingCartPrinter(ShoppingCart* cart){
+            this->cart=(cart);
+        }
+        
         void printInvoice(){
             cout << "Shopping Cart Invoice: " << endl;
-            for(auto p : products){
+            for(auto p : cart->getProducts()){
                 cout << p->name << " - $" << p->price << endl;
             }
-            cout << "Total: $" << calculateTotal() << endl;
+            cout << "Total: $" << cart->calculateTotal() << endl;
         }
+};
 
-        // 3. Violating SRP - Saves to DB (which should be in a separate class)
+class ShoppingCartStorage{
+    private:
+        ShoppingCart* cart;
+    public:
+        ShoppingCartStorage(ShoppingCart* cart){
+            this->cart=(cart);
+        }
+        
         void saveToDatabase(){
             cout << "Saving shopping cart to database..." << endl;
         }
 };
 
-int main(){
-    ShoppingCart* cart = new ShoppingCart();
+// int main(){
+//     ShoppingCart* cart = new ShoppingCart();
 
-    cart->addProduct(new Product("Laptop", 999.99));
-    cart->addProduct(new Product("Headphones", 199.99));
-    cart->addProduct(new Product("Mouse", 49.99));
-    cart->printInvoice();
-    cart->saveToDatabase();
-    return 0;
-}
+//     cart->addProduct(new Product("Laptop", 999.99));
+//     cart->addProduct(new Product("Headphones", 199.99));
+//     cart->addProduct(new Product("Mouse", 49.99));
+//     ShoppingCartPrinter* printer = new ShoppingCartPrinter(cart);
+//     ShoppingCartStorage* db = new ShoppingCartStorage(cart);
+
+//     printer->printInvoice();
+//     db->saveToDatabase();
+//     return 0;
+// } 
