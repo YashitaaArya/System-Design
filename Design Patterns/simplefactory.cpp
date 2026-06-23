@@ -29,25 +29,25 @@ class PremiumBurger : public Burger{
         }
 };
 
-class BurgerFactory{
-    public:
-        static Burger* createBurger(string type){
-            if(type == "basic"){
-                return new BasicBurger();
-            }else if(type == "standard"){
-                return new StandardBurger();
-            }else if(type == "premium"){
-                return new PremiumBurger();
-            }else{
-                return nullptr;
-            }
-        }
-};
+// class BurgerFactory{
+//     public:
+//         static Burger* createBurger(string type){
+//             if(type == "basic"){
+//                 return new BasicBurger();
+//             }else if(type == "standard"){
+//                 return new StandardBurger();
+//             }else if(type == "premium"){
+//                 return new PremiumBurger();
+//             }else{
+//                 return nullptr;
+//             }
+//         }
+// };
 
-int main(){
-    string type="premium";
-    BurgerFactory* factory = new BurgerFactory();
-    Burger* burger = factory->createBurger(type);
-    burger->prepare();
-    return 0;
-}
+// int main(){
+//     string type="premium";
+//     BurgerFactory* factory = new BurgerFactory();
+//     Burger* burger = factory->createBurger(type);
+//     burger->prepare();
+//     return 0;
+// }
